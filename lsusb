@@ -4,10 +4,12 @@
 #
 # Disclaimer: usage info and functionality from lsusb under Linux
 
-verbose () { 
+verbose() { 
 	# on Tahoe apple changed SPUSBDataType to SPUSBHostDataType
-	OS_VER="$(sw_vers -productVersion)"
-	if [[ OS_VER >= 26 ]]; then
+	OS_VER=$(sw_vers -productVersion)
+	MAJOR="${OS_VER%%.*}"
+
+	if (( MAJOR >= 26 )); then
 		system_profiler SPUSBHostDataType
 	else
 		system_profiler SPUSBDataType 
@@ -36,6 +38,7 @@ usage () { echo "Usage: $(basename "$0") [options]..."; }
 parse ()  {
 	# Get the name of the device, it is the first line that ends with a ':'
 	# Trim the string at the end
+	printf $device
 	name=`echo "$device" | head -2 | egrep ":$"  | sed -e 's/^ *//g' -e 's/ *:$//g'`
 
 	# Get the speed
