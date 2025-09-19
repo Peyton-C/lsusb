@@ -4,13 +4,13 @@
 #
 # Disclaimer: usage info and functionality from lsusb under Linux
 
-verbose () { system_profiler SPUSBDataType; }
+verbose () { system_profiler SPUSBHostDataType; }
 version () { echo "lsusb for Mac OS X 007"; }
 help ()  {
   cat >&2 <<EOM
 $(usage)
 List USB devices
-  -v  Increase verbosity (show output of "system_profiler SPUSBDataType")
+  -v  Increase verbosity (show output of "system_profiler SPUSBHostDataType")
   -s  [[bus]:][devnum]
        Show only devices with specified device and/or
        bus numbers (in decimal)

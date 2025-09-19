@@ -1,13 +1,13 @@
-lsusb command for Mac OS X
-==========================
+lsusb command for macOS
+=======================
 
-This is an utility to easily list USB devices in Mac OS X, just like the `lsusb` command in Linux. It leverages the data from the `system_profiler SPUSBDataType` built-in command available in Mac. You can type `lsusb -v` to get the unmodified output of `system_profiler SPUSBDataType`.
+This is an utility to easily list USB devices in macOS, just like the `lsusb` command in Linux. It leverages the data from the `system_profiler SPUSBHostDataType` built-in command available in Mac. You can type `lsusb -v` to get the unmodified output of `system_profiler SPUSBHostDataType`.
 
 To install, clone the repository and copy to a location available in your PATH, for example `sudo cp lsusb /usr/sbin`. You can also install it with [Homebrew](http://brew.sh):
 
 ```
 brew update             && \
-brew tap jlhonora/lsusb && \
+brew tap Peyton-C/lsusb && \
 brew install lsusb
 ```
 
@@ -34,7 +34,7 @@ Bus 006 Device 001: ID 05ac:8005 Apple Inc. OHCI Root Hub Simulation
 
 ```
 List USB devices
-  -v  Increase verbosity (show output of "system_profiler SPUSBDataType")
+  -v  Increase verbosity (show output of "system_profiler SPUSBHostDataType")
   -s  [[bus]:][devnum]
        Show only devices with specified device and/or
        bus numbers (in decimal)
